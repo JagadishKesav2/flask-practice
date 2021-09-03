@@ -19,56 +19,36 @@
         rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     >
+    <link 
+        rel="stylesheet" 
+        href="{{ url_for('static', filename='css/index.css') }}"
+    >
     <title>Todo App using Flask</title>
 </head>
 
-<body style="background-color: #9266ff;">
+<body>
     <h1 class="text-center mt-3">Todo App Using Flask</h1>
-    <div 
-        class="card mx-auto my-4" 
-        style="
-            width: 40rem;
-            height: 40rem;
-            background-color: #3f3160;"
-    >
+    <div class="card mx-auto my-4 card-container">
         <form action="/add" method="POST">
             <div class="row m-3">
                 <input 
+                    class="title-input"
                     type="text" 
                     placeholder="Enter Task"
                     name="title"
-                    style="
-                        width: 25rem;
-                        border-radius: 10px;
-                        border-color:antiquewhite;
-                        margin: 1rem;
-                        padding: 0.5rem;"
                 />
-                <input 
+                <input
+                    class="submit-button"
                     type="submit" 
                     value="Add"
-                    style="
-                        width: 8rem;
-                        height: 3rem;
-                        margin: 1rem;
-                        border-radius: 10px"
                 />
             </div>
         </form>
         {% for i in todo_list %}
-        <div 
-            class="row"
-            style="
-                background-color: #bf07ac;
-                width: 30rem;
-                height: 3rem;
-                margin: 1rem auto;
-                border-radius: 10px;"
-        >
+        <div class="row custom-card-body">
             <h5 
                 class="card-title my-auto text-white" 
                 style="width: 23rem;"
-                contenteditable="true"
             >
                 {{ i.title }}
             </h5>
